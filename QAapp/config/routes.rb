@@ -1,9 +1,9 @@
-Demo3::Application.routes.draw do
-  resources :microposts
+QAapp::Application.routes.draw do
+  resources :answers
 
-  resources :users do
-  get :who_viewed, :on => :member #add a new action named who_viewed,invoked via GET.IT  applies to each member of the collection of users.
-  end
+  resources :questions
+
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

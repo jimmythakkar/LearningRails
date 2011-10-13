@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
-
-  #skip_before_filter :authorize,:only => :index
   # GET /users
   # GET /users.xml
-
   def index
     @users = User.all
 
@@ -19,10 +16,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb 
-      flash.now[:notice] = 'You gotta be kidding me'
-      format.xml  { render :xml => @user.to_xml }
-      format.yaml  { render :text => @user.to_yaml }
+      format.html # show.html.erb
+      format.xml  { render :xml => @user }
     end
   end
 
