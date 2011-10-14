@@ -10,9 +10,7 @@ class UsersController < ApplicationController
     end
   end
   
-  def display_mainpage
-      render(:action => :input)
-  end 
+ 
   # GET /users/1
   # GET /users/1.xml
 
@@ -46,19 +44,20 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.xml
-  def create
-    @user = User.new(params[:user])
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
-      else
+   def create
+    @user = User.new(params[:user])
+    if @user.save
+   #   sign_in @user
+      
+      redirect_to @user
+    else
       @title = "Sign up"
       render 'new'
-      end
     end
   end
+
+
 
   # PUT /users/1
   # PUT /users/1.xml
