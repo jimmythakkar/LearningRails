@@ -8,6 +8,17 @@
 </head>
 <body>
 
+ <div>
+  <% if signed_in? %>
+	  <%= current_user.name %>
+    <%= link_to 'signout',"/signout" %>
+  <% end %>
+ </div>
+
+ <div>
+   
+ </div>
+
 <%= yield %>
 
 </body>

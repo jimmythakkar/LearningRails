@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
   # GET /answers/1.xml
   def show
     @answer = Answer.find(params[:id])
-
+     
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @answer }
@@ -41,7 +41,7 @@ class AnswersController < ApplicationController
   # POST /answers.xml
   def create
     @answer = Answer.new(params[:answer])
-
+    @answer.user = current_user
     respond_to do |format|
       if @answer.save
         format.html { redirect_to(@answer, :notice => 'Answer was successfully created.') }
