@@ -1,0 +1,24 @@
+<%=form_for(:user)do|form| %>
+<p>
+  <%= form.label :input %>  
+  <%=form.text_field :input, :placeholder => 'enter text here...'%>
+</p>
+<!--comment--!>
+<p>
+  <%=form.label :address, :style => 'float: left' %>
+  <%=form.text_area :address, :rows =>3, :cols => 40 %>
+</p>
+
+<p>
+  <%=form.label :color %>
+  <%=form.radio_button :color, 'red' %>
+  <%=form.label :red %>
+  <%= form.radio_button :color, 'yellow' %>
+  <%= form.label :yellow %>
+</p>
+
+<p>
+  <%= form.label :priority %>:
+  <%= form.select :priority, (1..10) %>
+</p>
+  <% end %>
